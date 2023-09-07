@@ -63,11 +63,13 @@
                 Total_amount: total,
             };
 
-            // Add the current client to the 'allClients' array
-            allClients.push(currentClient);
-
-            // Save the updated 'allClients' array back to localStorage
-            localStorage.setItem('allClients', JSON.stringify(allClients));
+            // Check if the last item in 'allClients' is equal to the 'currentClient'
+            if (JSON.stringify(allClients[allClients.length - 1]) !== JSON.stringify(currentClient)) {
+                // Add the current client to the 'allClients' array
+                allClients.push(currentClient);
+                // Save the updated 'allClients' array back to localStorage
+                localStorage.setItem('allClients', JSON.stringify(allClients));
+            }
 
             // Display client information on the page
             const clientList = document.getElementById('clientList');
@@ -94,7 +96,7 @@
             clearDataButton.addEventListener('click', function () {
                 // Clear the 'allClients' array and remove it from localStorage
                 localStorage.removeItem('allClients');
-                // Remove all displayed client information from the page
+                // Remove all displayed client information on the page
                 clientList.innerHTML = '';
             });
         });
