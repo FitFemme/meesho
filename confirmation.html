@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/fevicon/favicon.png" type="image/gif" />
+    <title>FitFemme</title>
+    
+    <link rel="stylesheet" href="confirmation.css">
+</head>
+<style>
+        
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    .invoice {
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 400px;
+        text-align: left;
+    }
+
+    .invoice h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .invoice-details {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .invoice-details p {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    .item {
+        font-weight: bold;
+    }
+
+    .total-amount {
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    .checkout-button {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+    .checkout-button:hover {
+        background-color: #45a049;
+    }
+
+    @media (max-width: 600px) {
+        .invoice {
+            width: 90%;
+        }
+    }
+</style>
+
+<body>
+    <div class="invoice">
+        <h2>Your Billing Information:</h2>
+
+        <div class="billing-info">
+            <div class="invoice-details">
+                <p>Type:</p>
+                <p> <span id="fullname"></span></p>
+            </div>
+            <div class="invoice-details">
+                <p>Phone Number:</p>
+                <p> <span id="phone"></span></p>
+            </div>
+            <div class="invoice-details">
+                <p>Address:</p>
+                <p> <span id="address"></span></p>
+            </div>
+            <div class="invoice-details">
+                <p>Address 2:</p>
+                <p> <span id="address2"></span></p>
+            </div>
+            <div class="invoice-details">
+                <p>City:</p>
+                <p> <span id="city"></span></p>
+            </div>
+            <div class="invoice-details">
+                <p>State:</p>
+                <p> <span id="state"></span></p>
+            </div>
+            <div class="invoice-details">
+                <p>Zip Code:</p>
+                <p> <span id="zip"></span></p>
+            </div>
+            <div class="invoice-details">
+                <p>Payment Type:</p>
+                <p> <span id="payment"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="invoice">
+        <h2>Invoice:</h2>
+        <div class="invoice-details">
+            <p class="item">Item name:</p>
+            <p>Sports Bra (pack Of 3)</p>
+        </div>
+        <div class="invoice-details">
+            <p>Type:</p>
+            <p>Cloth</p>
+        </div>
+        <div class="invoice-details">
+            <p>Price per item:</p>
+            <p>₹ 210</p>
+        </div>
+        <div class="invoice-details">
+            <p>Size:</p>
+            <p id="selectedSize"><span id="size"></span></p>
+        </div>
+        <div class="invoice-details">
+            <p>Quantity:</p>
+            <p id="selectedQuantity" ><span id="quantity"></span></p>
+        </div>
+        <div class="invoice-details">
+            <p>Delivery Charges:</p>
+            <p>Free</p>
+        </div>
+        <hr>
+        <div class="total-amount">
+            Total amount: ₹ <span id="totalAmount"><span id="total"></span></span>
+        </div>
+        <br>
+        <p>**Your order will be delivered to your doorstep in just 2 to 5 days.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve form data from localStorage
+            const formData = JSON.parse(localStorage.getItem('formData'));
+
+            // Display the billing information on the confirmation page
+            document.getElementById('fullname').textContent = formData.fullname;
+            document.getElementById('phone').textContent = formData.phone;
+            document.getElementById('address').textContent = formData.address;
+            document.getElementById('address2').textContent = formData.address2 || 'N/A';
+            document.getElementById('city').textContent = formData.city;
+            document.getElementById('state').textContent = formData.state;
+            document.getElementById('zip').textContent = formData.zip;
+            document.getElementById('payment').textContent = formData.payment;
+
+             // Parse URL parameters
+            const invoiceformData = JSON.parse(localStorage.getItem('invoiceformData'));
+
+            // Display the billing information on the confirmation page
+            document.getElementById('size').textContent = invoiceformData.size;
+            document.getElementById('quantity').textContent = invoiceformData.quantity;
+            document.getElementById('total').textContent = invoiceformData.totalAmount;
+             // Parse URL parameters
+             
+        
+        });
+    </script>
+</body>
+</html>
+
+

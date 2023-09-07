@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/fevicon/favicon.png" type="image/gif" />
+    
+    <!-- Custom CSS file link -->
+    <link rel="stylesheet" href="regestration.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <form id="orderForm">
+
+        <div class="row">
+
+            <div class="col">
+
+                <h3 class="title">billing address</h3>
+
+                <div class="inputBox">
+                    <span>full name :</span>
+                    <input type="text" id="fullname" placeholder="Aakash Gupta" required>
+                </div>
+                <div class="inputBox">
+                    <span>Phone no. :</span>
+                    <input type="tel" id="phone" placeholder="98XXXXXX10" pattern="[0-9]{10}" required>
+                </div>
+                <div class="inputBox">
+                    <span>address :</span>
+                    <input type="text" id="address" placeholder="room - street - locality" required>
+                </div>
+                <div class="inputBox">
+                    <span>address 2 (optional) :</span>
+                    <input type="text" id="address2" placeholder="room - street - locality">
+                </div>
+                <div class="inputBox">
+                    <span>city :</span>
+                    <input type="text" id="city" placeholder="mumbai" required>
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>state :</span>
+                        <input type="text" id="state" placeholder="Maharashtra" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>zip code :</span>
+                        <input type="text" id="zip" placeholder="123 456" required>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col">
+
+                <h3 class="title">payment</h3>
+                <div class="inputBox">
+                    <span>Payment Type :</span>
+                    <select id="payment" required>
+                        <option value="Cash On Delivery">Cash On Delivery</option>
+                    </select>
+                </div>
+                <h5>* Please Double-check your contact information for updates</h5>
+            </div>
+    
+        </div>
+<br>
+        <input type="submit" value="Confirm Order" class="submit-btn">
+
+    </form>
+
+</div>    
+    
+<script src="regestration.js"></script>
+</body>
+</html>
